@@ -299,36 +299,36 @@ def rfm():
         avg_monetary = format_currency(df_rfm.monetary.mean(), " R$", locale='es_CO') 
         st.metric("Rata-rata Monetary", value=avg_monetary)
         
-    # st.subheader("Distribusi 3 Parameter RFM")
-    # tabs = st.tabs(['Recency','Frequency', 'Monetary'])
-    # with tabs[0]:
-    #     # Adjust the figure size
-    #     plt.figure(figsize=(12, 5))
-    #     #Recency
-    #     # Create histplot
-    #     sns.histplot(df_rfm['recency'], kde=True, stat="density")
-    #     # Setting some visual options
-    #     plt.title('Recency distribution')
-    #     plt.xlabel(None)
-    #     st.pyplot(plt)
-    # with tabs[1]:
-    #     #Frequency
-    #     plt.figure(figsize=(12, 5))
-    #     # Create histplot
-    #     sns.histplot(df_rfm['frequency'], kde=True, stat="density")
-    #     # Setting some visual options
-    #     plt.title('Frequency distribution')
-    #     plt.xlabel(None)
-    #     st.pyplot(plt)
-    # with tabs[2]:
-    #     #Frequency
-    #     plt.figure(figsize=(12, 5))
-    #     # Create histplot
-    #     sns.histplot(df_rfm['monetary'], kde=True, stat="density")
-    #     # Setting some visual options
-    #     plt.title('Monetary distribution')
-    #     plt.xlabel(None)
-    #     st.pyplot(plt)
+    st.subheader("Distribusi 3 Parameter RFM")
+    tabs = st.tabs(['Recency','Frequency', 'Monetary'])
+    with tabs[0]:
+        # Adjust the figure size
+        plt.figure(figsize=(12, 5))
+        #Recency
+        # Create histplot
+        sns.histplot(df_rfm['recency'], kde=True, stat="density")
+        # Setting some visual options
+        plt.title('Recency distribution')
+        plt.xlabel(None)
+        st.pyplot(plt)
+    with tabs[1]:
+        #Frequency
+        plt.figure(figsize=(12, 5))
+        # Create histplot
+        sns.histplot(df_rfm['frequency'], kde=True, stat="density")
+        # Setting some visual options
+        plt.title('Frequency distribution')
+        plt.xlabel(None)
+        st.pyplot(plt)
+    with tabs[2]:
+        #Frequency
+        plt.figure(figsize=(12, 5))
+        # Create histplot
+        sns.histplot(df_rfm['monetary'], kde=True, stat="density")
+        # Setting some visual options
+        plt.title('Monetary distribution')
+        plt.xlabel(None)
+        st.pyplot(plt)
     
     st.subheader('Segmentasi Pelanggan')
     fig = px.pie(segment_counts, values=segment_counts, names=segment_counts.index,
