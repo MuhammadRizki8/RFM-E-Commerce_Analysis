@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from babel.numbers import format_currency
 import plotly.express as px
+import os
 
 
 def create_monthly_df(df_ecommerce):
@@ -79,8 +80,12 @@ st.set_page_config(page_title="E-commerce Dashboard")
 
 st.title("E-Commerce Dashboard \U0001F6D2")
 
-df_ecommerce = pd.read_csv("df_ecommerce.csv")
-df_rfm=pd.read_csv("df_rfm.csv")
+script_directory = os.path.dirname(os.path.abspath(__file__))
+ecommerce_path = os.path.join(script_directory, "df_ecommerce.csv")
+rfm_path = os.path.join(script_directory, "df_rfm.csv")
+
+df_ecommerce = pd.read_csv(ecommerce_path)
+df_rfm = pd.read_csv(rfm_path)
 df_ecommerce['order_purchase_timestamp'] = pd.to_datetime(df_ecommerce['order_purchase_timestamp'])
 
 # Create DataFrames
